@@ -16,13 +16,13 @@ provider "ibm" {
  
 
 resource "ibm_is_vpc" "vpc" {
-  name = "vpc-valentino-ej04"
+  name = "vpc-valentino-ej05"
   resource_group = var.resource_group
   
 }
 
 resource "ibm_is_subnet" "subnet" {
-    name = "snet-valentino-ej04"
+    name = "snet-valentino-ej05"
     vpc = ibm_is_vpc.vpc.id
     zone = "eu-es-1"
     ipv4_cidr_block = "10.251.20.0/24"
@@ -31,7 +31,7 @@ resource "ibm_is_subnet" "subnet" {
 }
 
 resource "ibm_is_security_group" "security_group" {
-  name = "sg-valentino-ej04"
+  name = "sg-valentino-ej05"
   vpc  = ibm_is_vpc.vpc.id
   resource_group = var.resource_group
 }
@@ -49,14 +49,14 @@ resource "ibm_is_security_group_rule" "ssh" {
 } 
 
 resource "ibm_is_ssh_key" "ssh_key" {
-  name       = "ssh-key-valentino-ej04"
+  name       = "ssh-key-valentino-ej05"
   public_key = var.public_key
   resource_group = var.resource_group
 }
 
 
-resource "ibm_is_instance" "vm_abermudez" {
-  name              = "vm-abermudez"
+resource "ibm_is_instance" "vm_valentino_ej05" {
+  name              = "vm-valentino-ej05"
   vpc               = ibm_is_vpc.vpc.id
   profile           = "bx2-2x8"
   zone              = "eu-es-1"
@@ -69,4 +69,10 @@ resource "ibm_is_instance" "vm_abermudez" {
     security_groups = [ibm_is_security_group.security_group.id]
  
   }
+}
+
+resource "ibm_is_floating_ip" "ip_public_valentino_ej05" {
+  name   = "ip_public_valentino_ej05"
+  target = ibm_is_instance.vm_valentino_ej05.primary_network_interface.0.id
+  resource_group = var.resource_group
 }
