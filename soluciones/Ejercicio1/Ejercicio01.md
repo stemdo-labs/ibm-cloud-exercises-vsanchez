@@ -4,12 +4,15 @@ Para este ejercicio he seguido las  instrucciones que se me proporcionan :
 El resultado son los siguientes:
 He creado la VPC:
 
-![[Pasted image 20250218083530.png]]
+![image](https://github.com/user-attachments/assets/a6e2119e-e2b8-4e39-b05b-b4648e870e4d)
+
 
 Ubicada en Madrid:
 
-![[Pasted image 20250218083621.png]]
+![image](https://github.com/user-attachments/assets/32b2e487-82d0-491f-bb0c-b3e0cabc619a)
+
 
 Con su subnet:
 
-![[Pasted image 20250218083652.png]]
+![image](https://github.com/user-attachments/assets/a0d57092-2a97-4e0c-998c-9ab630c59c51)
+
