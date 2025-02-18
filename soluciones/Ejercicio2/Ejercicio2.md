@@ -21,7 +21,8 @@ Tras esto procedo a hacer el ejercicio
 
 
 
-![image](https://github.com/user-attachments/assets/9cdd4e41-9c7e-41f9-9455-530f01b7904c)
+![image](https://github.com/user-attachments/assets/71faed86-8dba-4f4e-bbbe-60bbbb6a7641)
+
 
 
 ![image](https://github.com/user-attachments/assets/24377837-11af-47dc-bddc-16731a8ab847)
