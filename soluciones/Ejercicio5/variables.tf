@@ -21,12 +21,6 @@ variable "resource_group" {
   sensitive = true
 }
 
-variable "ipv4_cidr_block" {
-  description = "Bloque CIDR para la subred"
-  type        = string
-  sensitive = true
-  
-}
 variable "public_key" {
   description = "Clave pública para la instancia"
   type        = string

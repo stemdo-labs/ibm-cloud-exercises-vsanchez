@@ -22,7 +22,7 @@ resource "ibm_is_subnet" "subnet" {
     name = "snet-valentino-ej04"
     vpc = ibm_is_vpc.vpc.id
     zone = "eu-es-1"
-    ipv4_cidr_block = var.ipv4_cidr_block
+    ipv4_cidr_block = "10.251.20.0/24"
     resource_group = var.resource_group
   
 }
@@ -62,12 +62,7 @@ resource "ibm_is_instance" "mv-instance" {
   zone             = var.zone
   primary_network_interface {
     subnet  = ibm_is_subnet.subnet.id
-    allow_ip_spoofing = true
-    security_groups  = [ ibm_is_security_group.security_group.id ]
-    primary_ip {
-    auto_delete       = false
-    address             = "10.251.20.34"
-    }
+    security_groups  = [ibm_is_security_group.security_group.id]
   }
 
 }
