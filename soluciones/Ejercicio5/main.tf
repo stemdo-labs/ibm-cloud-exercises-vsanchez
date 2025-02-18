@@ -36,6 +36,8 @@ resource "ibm_is_security_group" "security_group" {
 resource "ibm_is_security_group_rule" "ssh" {
   group = ibm_is_security_group.security_group.id
   direction      = "inbound"
+  remote         = "0.0.0.0/0" 
+  ip_version     = "ipv4"
   tcp {
     port_min = 22
     port_max = 22
@@ -49,17 +51,6 @@ resource "ibm_is_ssh_key" "ssh_key" {
   resource_group = var.resource_group
 }
 
-resource "ibm_is_virtual_network_interface" "network_interface" {
-
-    name                                    = "vni-valentino-ej04"
-    allow_ip_spoofing               = false
-    enable_infrastructure_nat   = true
-    primary_ip {
-        auto_delete       = false
-    address             = var.ipv4_cidr_block
-    }
-    subnet   = ibm_is_subnet.subnet.id
-}
 
 resource "ibm_is_instance" "mv-instance" {
   name             = "mv-valentino-ej04"
@@ -69,6 +60,12 @@ resource "ibm_is_instance" "mv-instance" {
   vpc              = ibm_is_vpc.vpc.id
   primary_network_interface {
     subnet  = ibm_is_subnet.subnet.id
+    allow_ip_spoofing = true
+    security_groups  = [ ibm_is_security_group.security_group.id ]
+    primary_ip {
+    auto_delete       = false
+    address             = "10.251.10.34"
+    }
   }
   keys             = [ibm_is_ssh_key.ssh_key.id]
   zone             = var.zone
