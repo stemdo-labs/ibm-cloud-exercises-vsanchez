@@ -17,6 +17,10 @@ Tras esto procedo a hacer el ejercicio
 ![image](https://github.com/user-attachments/assets/b8a9695c-b1f6-4167-a621-41d80f2c2f06)
 
 
+![image](https://github.com/user-attachments/assets/fc074485-9881-4c4a-ba66-9bbbe4e40ecc)
+
+
+
 ![image](https://github.com/user-attachments/assets/9cdd4e41-9c7e-41f9-9455-530f01b7904c)
 
 
