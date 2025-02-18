@@ -43,12 +43,12 @@ resource "ibm_is_security_group_rule" "ssh" {
 
 } 
 
-resource "ibm_is_ssh_key" "example" {
+resource "ibm_is_ssh_key" "ssh_key" {
   name       = "ssh-key-valentino-ej04"
   public_key = var.public_key
 }
 
-resource "ibm_is_virtual_network_interface" "example"{
+resource "ibm_is_virtual_network_interface" "network_interface" {
     name                                    = "vni-valentino-ej04"
     allow_ip_spoofing               = false
     enable_infrastructure_nat   = true
@@ -56,18 +56,18 @@ resource "ibm_is_virtual_network_interface" "example"{
         auto_delete       = false
     address             = var.ipv4_cidr_block
     }
-    subnet   = ibm_is_subnet.example.id
+    subnet   = ibm_is_subnet.subnet.id
 }
 
-resource "ibm_is_instance" "example" {
+resource "ibm_is_instance" "mv-instance" {
   name             = "mv-valentino-ej04"
   image            = var.image
   profile          = "bx2-2x8"
   resource_group   = var.resource_group
   vpc              = ibm_is_vpc.vpc.id
   primary_network_interface {
-    network = ibm_is_virtual_network_interface.example.id
+    network = ibm_is_virtual_network_interface.network_interface.id
   }
-  keys             = [ibm_is_ssh_key.example.id]
+  keys             = [ibm_is_ssh_key.ssh_key.id]
   zone             = var.zone
 }
