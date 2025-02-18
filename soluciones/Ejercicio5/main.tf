@@ -58,15 +58,16 @@ resource "ibm_is_instance" "mv-instance" {
   profile          = "bx2-2x8"
   resource_group   = var.resource_group
   vpc              = ibm_is_vpc.vpc.id
+  keys             = [ibm_is_ssh_key.ssh_key.id]
+  zone             = var.zone
   primary_network_interface {
     subnet  = ibm_is_subnet.subnet.id
     allow_ip_spoofing = true
     security_groups  = [ ibm_is_security_group.security_group.id ]
     primary_ip {
     auto_delete       = false
-    address             = "10.251.10.34"
+    address             = "10.251.20.34"
     }
   }
-  keys             = [ibm_is_ssh_key.ssh_key.id]
-  zone             = var.zone
+
 }
