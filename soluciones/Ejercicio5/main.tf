@@ -67,6 +67,7 @@ resource "ibm_is_instance" "mv-instance" {
   vpc              = ibm_is_vpc.vpc.id
   primary_network_interface {
     network = ibm_is_virtual_network_interface.network_interface.id
+    subnet  = ibm_is_subnet.subnet.id
   }
   keys             = [ibm_is_ssh_key.ssh_key.id]
   zone             = var.zone
