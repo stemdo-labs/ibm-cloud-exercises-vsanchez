@@ -1,4 +1,5 @@
 # Ejercicio 3
+He seguido los pasos del ejercicioy ya tenía instalado terraform:
 
 ![image](https://github.com/user-attachments/assets/807e8548-af37-45c9-aa82-2b17566e651c)
 
