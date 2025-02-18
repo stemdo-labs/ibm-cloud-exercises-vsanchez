@@ -44,11 +44,13 @@ resource "ibm_is_security_group_rule" "ssh" {
 } 
 
 resource "ibm_is_ssh_key" "ssh_key" {
+  resource_group_id = var.resource_group
   name       = "ssh-key-valentino-ej04"
   public_key = var.public_key
 }
 
 resource "ibm_is_virtual_network_interface" "network_interface" {
+    resource_group_id = var.resource_group
     name                                    = "vni-valentino-ej04"
     allow_ip_spoofing               = false
     enable_infrastructure_nat   = true
