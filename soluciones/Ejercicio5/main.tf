@@ -1,16 +1,19 @@
 terraform {
-  required_version = ">=1.0.0, <2.0"
   required_providers {
     ibm = {
       source = "IBM-Cloud/ibm"
+      version = ">= 1.12.0"
     }
   }
 }
 
 provider "ibm" {
-  ibmcloud_api_key = var.ibmcloud_api_key
-  region           = var.region         
+
+  region = "eu-es"
+  ibmcloud_api_key=var.ibmcloud_api_key
+
 }
+ 
 
 resource "ibm_is_vpc" "vpc" {
   name = "vpc-valentino-ej04"
