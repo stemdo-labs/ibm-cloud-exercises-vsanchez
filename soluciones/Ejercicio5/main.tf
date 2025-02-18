@@ -72,7 +72,7 @@ resource "ibm_is_instance" "vm_valentino_ej05" {
 }
 
 resource "ibm_is_floating_ip" "ip_public_valentino_ej05" {
-  name   = "ip_public_valentino_ej05"
+  name   = "ip-public-valentino-ej05"
   target = ibm_is_instance.vm_valentino_ej05.primary_network_interface.0.id
   resource_group = var.resource_group
 }
