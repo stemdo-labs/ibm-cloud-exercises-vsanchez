@@ -69,5 +69,5 @@ resource "ibm_is_instance" "example" {
     network = ibm_is_virtual_network_interface.example.id
   }
   keys             = [ibm_is_ssh_key.example.id]
-  zone             = "eu-es-1"
+  zone             = var.zone
 }
