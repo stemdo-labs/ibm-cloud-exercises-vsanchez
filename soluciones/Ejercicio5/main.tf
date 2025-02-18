@@ -55,17 +55,18 @@ resource "ibm_is_ssh_key" "ssh_key" {
 }
 
 
-resource "ibm_is_instance" "mv-instance" {
-  name             = "mv-valentino-ej04"
-  image            = "r050-b98611da-e7d8-44db-8c42-2795071eec24"
-  profile          = "bx2-2x8"
-  resource_group   = var.resource_group
-  vpc              = ibm_is_vpc.vpc.id
-  keys             = [ibm_is_ssh_key.ssh_key.id]
-  zone             = var.zone
+resource "ibm_is_instance" "vm_abermudez" {
+  name              = "vm-abermudez"
+  vpc               = ibm_is_vpc.vpc.id
+  profile           = "bx2-2x8"
+  zone              = "eu-es-1"
+  keys = [ibm_is_ssh_key.ssh_key.id]  
+  image             = "r050-b98611da-e7d8-44db-8c42-2795071eec24"
+  resource_group = var.resource_group
+ 
   primary_network_interface {
-    subnet  = ibm_is_subnet.subnet.id
-    security_groups  = [ibm_is_security_group.security_group.id]
+    subnet          = ibm_is_subnet.subnet.id
+    security_groups = [ibm_is_security_group.security_group.id]
+ 
   }
-
 }
