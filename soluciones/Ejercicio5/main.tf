@@ -44,7 +44,6 @@ resource "ibm_is_security_group_rule" "ssh" {
 } 
 
 resource "ibm_is_ssh_key" "ssh_key" {
-  resource_group_id = var.resource_group
   name       = "ssh-key-valentino-ej04"
   public_key = var.public_key
 }
