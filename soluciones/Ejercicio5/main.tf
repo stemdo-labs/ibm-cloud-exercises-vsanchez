@@ -54,7 +54,7 @@ resource "ibm_is_ssh_key" "ssh_key" {
 
 resource "ibm_is_instance" "mv-instance" {
   name             = "mv-valentino-ej04"
-  image            = var.image
+  image            = "r050-b98611da-e7d8-44db-8c42-2795071eec24"
   profile          = "bx2-2x8"
   resource_group   = var.resource_group
   vpc              = ibm_is_vpc.vpc.id

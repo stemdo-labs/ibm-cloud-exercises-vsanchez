@@ -34,10 +34,5 @@ variable "public_key" {
   
 }
 
-variable "image" {
-  description = "Imagen de la instancia"
-  type        = string
-  sensitive = true
-  
-}
+
 
