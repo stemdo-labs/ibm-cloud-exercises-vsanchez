@@ -177,21 +177,20 @@ resource "ibm_is_lb_pool" "lb_pool" {
   health_timeout = 2
   health_type =  "tcp"
 
+
 }
 resource "ibm_is_lb_pool_member" "member1" {
   lb       = ibm_is_lb.load_balancer.id
   pool     = ibm_is_lb_pool.lb_pool.id
   port     = 80
-  weight   = 50
-  target_id = ibm_is_instance.vm_valentino_ej06_1.id  
+  target_address = ibm_is_instance.vm_valentino_ej06_1.primary_network_interface[0].primary_ipv4_address
 }
 
 resource "ibm_is_lb_pool_member" "member2" {
   lb       = ibm_is_lb.load_balancer.id
   pool     = ibm_is_lb_pool.lb_pool.id
   port     = 80
-  weight   = 50
-  target_id = ibm_is_instance.vm_valentino_ej06_2.id  
+  target_address = ibm_is_instance.vm_valentino_ej06_2.primary_network_interface[0].primary_ipv4_address
 }
 
 
@@ -199,7 +198,6 @@ resource "ibm_is_lb_listener" "http_listener" {
   lb =  ibm_is_lb.load_balancer.id
   protocol      = "http"
   port          = 80
-
   default_pool  = ibm_is_lb_pool.lb_pool.id
 }
 
