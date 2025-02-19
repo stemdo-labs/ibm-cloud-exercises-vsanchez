@@ -88,6 +88,15 @@ resource "ibm_is_security_group_rule" "outbound" {
   ip_version     = "ipv4"
 } 
 
+resource "ibm_is_security_group_rule" "icmp" {
+  group     = ibm_is_security_group.sg_web.id
+  direction = "inbound"
+  remote    = "0.0.0.0/0"
+  icmp {
+    type = 8
+  }
+}
+
 resource "ibm_is_ssh_key" "ssh_key" {
   name       = "ssh-key-valentino-ej06"
   public_key = var.public_key
@@ -144,4 +153,16 @@ resource "ibm_is_lb" "load_balancer" {
   resource_group = var.resource_group
   name    = "load-balancer"
   subnets = [ibm_is_subnet.subnet1.id, ibm_is_subnet.subnet2.id]
+}
+
+resource "ibm_is_lb_pool" "lb_pool" {
+  name = "lb-pool"
+  lb   = ibm_is_lb.load_balancer.id
+  protocol = "http"
+  algorithm = "round_robin"
+  health_delay = 5
+  health_retries = 2
+  health_timeout = 2
+  health_type =  "tcp"
+
 }
