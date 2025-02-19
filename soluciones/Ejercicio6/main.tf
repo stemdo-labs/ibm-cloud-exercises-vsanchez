@@ -171,6 +171,7 @@ resource "ibm_is_lb_pool_member" "member1" {
   pool          = ibm_is_lb_pool.lb_pool.id
   port          = 80
   weight        = 50
+  target_id =  ibm_is_instance.vm_valentino_ej06_1.primary_network_interface.0.id
 }
 
 resource "ibm_is_lb_pool_member" "member2" {
@@ -178,6 +179,7 @@ resource "ibm_is_lb_pool_member" "member2" {
   pool          = ibm_is_lb_pool.lb_pool.id
   port          = 80
   weight        = 50
+  target_id = ibm_is_instance.vm_valentino_ej06_2.primary_network_interface.0.id
 }
 
 
