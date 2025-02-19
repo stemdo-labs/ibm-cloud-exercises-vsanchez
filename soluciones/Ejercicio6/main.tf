@@ -67,6 +67,12 @@ resource "ibm_is_security_group_rule" "http" {
   }
 
 } 
+resource "ibm_is_security_group_rule" "outbound" {
+  group = ibm_is_security_group.security_group.id
+  direction      = "outbound"
+  remote         = "0.0.0.0/0" 
+  ip_version     = "ipv4"
+} 
 
 resource "ibm_is_ssh_key" "ssh_key" {
   name       = "ssh-key-valentino-ej06"
