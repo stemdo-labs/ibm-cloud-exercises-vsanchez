@@ -52,6 +52,18 @@ resource "ibm_is_public_gateway" "pgw2" {
   resource_group  = var.resource_group
 }
 
+resource "ibm_is_subnet_public_gateway_attachment" "atachment1" {
+ public_gateway = ibm_is_public_gateway.pgw1.id
+ subnet         = ibm_is_subnet.subnet1.id
+ resource_group = var.resource_group 
+}
+
+resource "ibm_is_subnet_public_gateway_attachment" "atachment2" {
+ public_gateway = ibm_is_public_gateway.pgw2.id
+ subnet         = ibm_is_subnet.subnet2.id
+ resource_group = var.resource_group 
+}
+
 resource "ibm_is_security_group" "security_group" {
   name = "sg-valentino-ej05"
   vpc  = ibm_is_vpc.vpc.id
@@ -190,3 +202,4 @@ resource "ibm_is_lb_listener" "http_listener" {
 
   default_pool  = ibm_is_lb_pool.lb_pool.id
 }
+
