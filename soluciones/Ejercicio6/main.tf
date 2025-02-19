@@ -167,20 +167,21 @@ resource "ibm_is_lb_pool" "lb_pool" {
 
 }
 resource "ibm_is_lb_pool_member" "member1" {
-  lb =  ibm_is_lb.load_balancer.id
+  lb            = ibm_is_lb.load_balancer.id
   pool          = ibm_is_lb_pool.lb_pool.id
   port          = 80
-  target_id     = ibm_is_instance.vm_valentino_ej06_1.primary_network_interface.0.primary_ip[0].id
+  target_id     = ibm_is_instance.vm_valentino_ej06_1.primary_network_interface[0].primary_ip.address
   weight        = 50
 }
 
 resource "ibm_is_lb_pool_member" "member2" {
-  lb =  ibm_is_lb.load_balancer.id
+  lb            = ibm_is_lb.load_balancer.id
   pool          = ibm_is_lb_pool.lb_pool.id
   port          = 80
-  target_id     = ibm_is_instance.vm_valentino_ej06_2.primary_network_interface.0.primary_ip[0].id
+  target_id     = ibm_is_instance.vm_valentino_ej06_2.primary_network_interface[0].primary_ip.address
   weight        = 50
 }
+
 
 resource "ibm_is_lb_listener" "http_listener" {
   lb =  ibm_is_lb.load_balancer.id
