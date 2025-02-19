@@ -89,7 +89,7 @@ resource "ibm_is_security_group_rule" "outbound" {
 } 
 
 resource "ibm_is_security_group_rule" "icmp" {
-  group     = ibm_is_security_group.sg_web.id
+  group     = ibm_is_security_group.security_group.id
   direction = "inbound"
   remote    = "0.0.0.0/0"
   icmp {
