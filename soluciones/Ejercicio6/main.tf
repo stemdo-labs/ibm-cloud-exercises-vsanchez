@@ -121,6 +121,7 @@ resource "ibm_is_floating_ip" "ip_public_valentino_ej06_2" {
 }
 
 resource "ibm_is_lb" "load_balancer" {
+  resource_group = var.resource_group
   name    = "load-balancer"
   subnets = [ibm_is_subnet.subnet1.id, ibm_is_subnet.subnet2.id]
 }
