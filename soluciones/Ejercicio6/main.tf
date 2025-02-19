@@ -38,6 +38,20 @@ resource "ibm_is_subnet" "subnet2" {
   
 }
 
+resource "ibm_is_public_gateway" "pgw1" {
+  name            = "pgw-valentino-ej06-1"
+  vpc             = ibm_is_vpc.vpc.id
+  zone            = "eu-es-1"
+  resource_group  = var.resource_group
+}
+
+resource "ibm_is_public_gateway" "pgw2" {
+  name            = "pgw-valentino-ej06-2"
+  vpc             = ibm_is_vpc.vpc.id
+  zone            = "eu-es-2"
+  resource_group  = var.resource_group
+}
+
 resource "ibm_is_security_group" "security_group" {
   name = "sg-valentino-ej05"
   vpc  = ibm_is_vpc.vpc.id
