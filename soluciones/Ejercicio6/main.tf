@@ -165,6 +165,7 @@ resource "ibm_is_lb" "load_balancer" {
   resource_group = var.resource_group
   name    = "load-balancer"
   subnets = [ibm_is_subnet.subnet1.id, ibm_is_subnet.subnet2.id]
+  security_groups = [ ibm_is_security_group.security_group.id]
 }
 
 resource "ibm_is_lb_pool" "lb_pool" {
@@ -175,7 +176,7 @@ resource "ibm_is_lb_pool" "lb_pool" {
   health_delay = 5
   health_retries = 2
   health_timeout = 2
-  health_type =  "tcp"
+  health_type =  "http"
 
 
 }
