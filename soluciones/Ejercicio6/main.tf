@@ -176,7 +176,7 @@ resource "ibm_is_lb_pool" "lb_pool" {
   health_delay = 5
   health_retries = 2
   health_timeout = 2
-  health_type =  "http"
+  health_type =  "tcp"
 
 
 }
