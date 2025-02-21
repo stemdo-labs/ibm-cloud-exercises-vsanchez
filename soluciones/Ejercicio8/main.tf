@@ -99,7 +99,7 @@ resource "ibm_is_subnet_public_gateway_attachment" "pg_attach1" {
 resource "ibm_resource_instance" "monitoring" {
   name     = "monitoring-name"
   service  = "sysdig-monitor"
-  plan     = ""
+  plan     = "lite"
   location = "eu-es"
   resource_group_id  = var.resource_group
  
