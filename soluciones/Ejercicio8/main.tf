@@ -101,6 +101,8 @@ resource "ibm_resource_instance" "monitoring" {
   service  = "sysdig-monitor"
   plan     = "lite"
   location = "eu-es"
+  resource_group_id  = var.resource_group
+ 
 }
 
 
