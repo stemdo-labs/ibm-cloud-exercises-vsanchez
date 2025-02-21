@@ -27,3 +27,7 @@ Me dió un error el plan porq el resource instance ya estaba creado, lo borre yu
 
 
 
+
+![image](https://github.com/user-attachments/assets/2299fbda-f285-47d1-a968-3d97673a6837)
+
+
