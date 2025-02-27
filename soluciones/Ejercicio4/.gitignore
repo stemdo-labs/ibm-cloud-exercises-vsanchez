@@ -1,0 +1,21 @@
+# Terraform state files
+terraform.tfstate
+terraform.tfstate.backup
+
+# Terraform config files
+.terraform/
+.terraform.lock.hcl
+
+# Terraform variable files (pueden contener credenciales sensibles)
+*.tfvars
+*.tfvars.json
+
+# Archivos de logs o temporales
+crash.log
+*.log
+
+# Archivos de respaldo o configuración de IDE
+*.backup
+.DS_Store
+.vscode/
+.idea/
